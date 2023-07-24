@@ -1,0 +1,10 @@
+## Files to ignore in this folder
+## All fasta files
+*.fasta
+## All results
+bakta/*
+## all snakemake files
+.snakemake/*
+## Information about samples
+*.tsv # ignore information from samples
+sampleSheet.tsv
