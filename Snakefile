@@ -26,14 +26,14 @@ def get_fasta(samples):
 ###############################
 rule all:
     input:
-        expand("bakta/{sample}.log", sample = sample_id),
+        expand("{sample}/{sample}.fna", sample = sample_id),
 
 rule bakta:
     input: 
         unpack(lambda wildcards: get_fasta(wildcards.sample))
     output: 
-        annot = 'bakta/{sample}.log'
+        annot = '{sample}/{sample}.fna'
     shell: 
         """
-        bakta --db /PUBLIC_DATA/bakta/bakta3.10/db --keep-contig-headers  --meta --prefix {wildcards.sample} -v --output bakta -t 10 -m 500 {input.fasta}
+    bakta --db /PUBLIC_DATA/bakta/bakta3.10/db --keep-contig-headers  --meta --prefix {wildcards.sample} -v --output {wildcards.sample} -t 10 -m 500 {input.fasta}
         """

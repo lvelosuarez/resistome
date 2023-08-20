@@ -2,7 +2,7 @@
 ## All fasta files
 *.fasta
 ## All results
-bakta/*
+*/
 ## all snakemake files
 .snakemake/*
 ## Information about samples
